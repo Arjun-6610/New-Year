@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>✨ Arjun Sedai · New Year 2083 ✨</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            /* METALLIC RED THEME — rich gradient background */
+            background: radial-gradient(circle at 30% 20%, #5c1010 0%, #2c0303 80%, #140101 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* metallic shimmer overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(220, 180, 120, 0.02) 0px, rgba(220, 180, 120, 0.02) 2px, 
+                        rgba(180, 80, 50, 0.03) 2px, rgba(180, 80, 50, 0.03) 8px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* subtle metallic glow lines */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(220, 140, 80, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* MAIN CARD — metallic & red glassmorphism */
+        .newyear-card {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(45, 10, 10, 0.45);
+            backdrop-filter: blur(16px) saturate(200%);
+            -webkit-backdrop-filter: blur(16px) saturate(200%);
+            border: 2px solid rgba(210, 140, 70, 0.65);
+            border-radius: 52px;
+            padding: 40px 35px 45px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.8), 
+                        0 0 0 1px rgba(230, 180, 110, 0.25) inset, 
+                        0 0 40px #b34e1a66,
+                        inset 0 8px 12px rgba(255, 220, 160, 0.15);
+            text-align: center;
+            transition: all 0.3s ease;
+            color: #fbead2;
+            /* metallic edge effect */
+            border-top-color: #e0a56b;
+            border-bottom-color: #b45f2e;
+            border-left-color: #c27e4a;
+            border-right-color: #c27e4a;
+        }
+
+        /* YEAR display — metallic red chrome */
+        .year-display {
+            font-size: 6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f3cfb0 0%, #e09e6b 30%, #d4733e 50%, #f3cfb0 70%, #b85428 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px #c94f1f, 0 0 40px #b33e0e, 0 0 70px #ff802b80;
+            letter-spacing: 10px;
+            margin-top: 10px;
+            line-height: 1.1;
+            filter: drop-shadow(0 6px 6px #2f0404);
+        }
+
+        .sub-glow {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #ffdbbc;
+            text-shadow: 0 0 12px #c0602c, 0 0 25px #a73f1a;
+            letter-spacing: 4px;
+            word-spacing: 8px;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffefdb, #eeb486);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .divider {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #eeb07a, #ffdbb5, #eeb07a, transparent);
+            margin: 20px auto 30px;
+            border-radius: 4px;
+            box-shadow: 0 0 12px #e06d2e;
+        }
+
+        /* MESSAGE BOX — deep metallic red */
+        .message-box {
+            background: rgba(25, 5, 5, 0.5);
+            border-radius: 42px;
+            padding: 32px 28px;
+            margin: 25px 0 20px;
+            border-left: 6px solid #dc8e5a;
+            border-right: 6px solid #dc8e5a;
+            box-shadow: 0 12px 24px #14010199, inset 0 0 20px #b35d1e33, inset 0 2px 5px #ffd9a633;
+            backdrop-filter: blur(10px);
+        }
+
+        .greeting {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffddb0;
+            text-shadow: 0 4px 10px #6b1f00, 0 0 20px #f08541;
+            letter-spacing: 3px;
+        }
+
+        .greeting i {
+            color: #f9b973;
+            margin: 0 12px;
+            filter: drop-shadow(0 0 6px #cf5a1e);
+        }
+
+        .personal-note {
+            font-size: 1.7rem;
+            line-height: 1.5;
+            color: #fadbbc;
+            margin-bottom: 25px;
+            font-style: italic;
+            background: rgba(80, 20, 10, 0.35);
+            padding: 12px 25px;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid #d4985b;
+            box-shadow: inset 0 1px 4px #ffdbb066, 0 6px 10px #1f0505;
+        }
+
+        .personal-note i {
+            color: #ff9966;
+            margin: 0 6px;
+        }
+
+        /* known people — metallic tags */
+        .known-people {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px 30px;
+            margin: 35px 0 20px;
+            font-size: 1.4rem;
+        }
+
+        .people-tag {
+            background: linear-gradient(145deg, #3e1a0c, #210903);
+            padding: 12px 28px;
+            border-radius: 50px;
+            border: 1.5px solid #c9844f;
+            box-shadow: 0 6px 10px #0d0202, 0 0 8px #d9813f66, inset 0 1px 0 #ffdbb0;
+            backdrop-filter: blur(5px);
+            color: #ffdebc;
+            font-weight: 600;
+            transition: 0.2s;
+            text-shadow: 0 1px 3px black;
+            letter-spacing: 0.5px;
+        }
+
+        .people-tag i {
+            margin-right: 10px;
+            color: #fcaa5e;
+            text-shadow: 0 0 8px #f60;
+        }
+
+        .people-tag:hover {
+            transform: translateY(-4px);
+            border-color: #f3be85;
+            background: #572810;
+            box-shadow: 0 8px 16px #1f0303, 0 0 15px #e68a3f;
+        }
+
+        /* WISHES — metallic red cards */
+        .wishes-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 35px 0 15px;
+        }
+
+        .wish-card {
+            background: rgba(45, 12, 8, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 24px 12px;
+            border-radius: 30px;
+            border: 1.5px solid #bc7643;
+            box-shadow: 0 8px 14px #140101, inset 0 2px 4px #f5bd7e55, inset 0 -2px 5px #4b1a06;
+            transition: all 0.2s;
+        }
+
+        .wish-card i {
+            font-size: 2.4rem;
+            color: #fdbb70;
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px #d6551e, 0 0 20px #aa3a0b;
+        }
+
+        .wish-card p {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #fae1c0;
+            text-shadow: 0 2px 5px black;
+        }
+
+        .extra-quote {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            background: #2f0c06b3;
+            padding: 14px 20px;
+            border-radius: 60px;
+            backdrop-filter: blur(5px);
+            border: 1px solid #bd7a48;
+            color: #ffe6cb;
+            box-shadow: inset 0 0 15px #cf7d4422, 0 8px 12px #1e0404;
+            font-style: italic;
+        }
+
+        /* FOOTER — signature ARJUN SEDAI */
+        .footer-note {
+            margin-top: 40px;
+            font-size: 1.25rem;
+            color: #ecccad;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border-top: 2px dashed #b45f2e;
+            padding-top: 30px;
+            text-shadow: 0 2px 6px #1f0200;
+        }
+
+        .signature {
+            font-weight: 400;
+            letter-spacing: 4px;
+            background: linear-gradient(145deg, #fad3af, #e79f62);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.7rem;
+            filter: drop-shadow(0 2px 3px #521d00);
+        }
+
+        .signature strong {
+            font-weight: 700;
+            color: #ffdbb0;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #ffdbb0;
+            text-shadow: 0 0 12px #b3470b;
+        }
+
+        /* MUSIC LINK SECTION — you can replace with your own file */
+        .music-section {
+            margin-top: 25px;
+            padding: 15px 20px;
+            background: rgba(20, 5, 5, 0.6);
+            border-radius: 40px;
+            border: 1px solid #b8743e;
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            box-shadow: inset 0 0 10px #ab5d2e33, 0 5px 10px #1e0303;
+        }
+
+        .music-label {
+            color: #f3cca8;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .music-label i {
+            color: #e6984c;
+            font-size: 1.4rem;
+        }
+
+        .music-link-placeholder {
+            background: #2c1006;
+            padding: 8px 18px;
+            border-radius: 36px;
+            border: 1px dashed #d69655;
+            color: #ffdbb0;
+            font-family: monospace;
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .edit-hint {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-left: 5px;
+        }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            .newyear-card {
+                padding: 25px 16px;
+                border-radius: 36px;
+            }
+            .year-display {
+                font-size: 3.8rem;
+                letter-spacing: 5px;
+            }
+            .sub-glow {
+                font-size: 1.3rem;
+            }
+            .greeting {
+                font-size: 1.8rem;
+            }
+            .personal-note {
+                font-size: 1.3rem;
+            }
+            .people-tag {
+                font-size: 1.1rem;
+                padding: 8px 18px;
+            }
+            .signature {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* extra metallic shine on card edges */
+        .newyear-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 52px;
+            pointer-events: none;
+            box-shadow: inset 0 0 30px #b3470b33, inset 0 0 8px #fec27e;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="newyear-card">
+
+    <!-- HUGE YEAR -->
+    <div class="year-display">2083</div>
+    <div class="sub-glow">✦ NEW YEAR ✦</div>
+    <div class="divider"></div>
+
+    <!-- FULL OF MESSAGE -->
+    <div class="message-box">
+        <div class="greeting">
+            <i class="fas fa-crown"></i> HAPPY NEW YEAR <i class="fas fa-crown"></i>
+        </div>
+        <div class="personal-note">
+            <i class="fas fa-fire" style="color: #ff7733;"></i> 
+            to every person known by me · cherished & beloved 
+            <i class="fas fa-fire" style="color: #ff7733;"></i>
+        </div>
+
+        <!-- known people tags (representing everyone known) -->
+        <div class="known-people">
+            <span class="people-tag"><i class="fas fa-users"></i> Family</span>
+            <span class="people-tag"><i class="fas fa-user-friends"></i> Friends</span>
+            <span class="people-tag"><i class="fas fa-briefcase"></i> Colleagues</span>
+            <span class="people-tag"><i class="fas fa-graduation-cap"></i> Mentors</span>
+            <span class="people-tag"><i class="fas fa-home"></i> Neighbors</span>
+            <span class="people-tag"><i class="fas fa-handshake"></i> Acquaintances</span>
+            <span class="people-tag"><i class="fas fa-globe"></i> Near & Far</span>
+            <span class="people-tag"><i class="fas fa-heart"></i> All Known</span>
+        </div>
+
+        <!-- Wish cards with messages — full of love -->
+        <div class="wishes-flow">
+            <div class="wish-card">
+                <i class="fas fa-shield-hal"></i>
+                <p>Strength & resilience in 2083. May every challenge become triumph.</p>
+            </div>
+            <div class="wish-card">
+                <i class="fas fa-gem"></i>
+                <p>You are precious. May this year bring you wealth of joy & peace.</p>
+            </div>
+            <div class="wish-card">
+                <i class="fas fa-feather-alt"></i>
+                <p>Lightness of spirit, boldness of heart — that's my wish for you.</p>
+            </div>
+            <div class="wish-card">
+                <i class="fas fa-rocket"></i>
+                <p>Reach new heights. 2083 is your launchpad to greatness.</p>
+            </div>
+            <div class="wish-card">
+                <i class="fas fa-rings-wedding"></i>
+                <p>Connection, loyalty, and endless laughter with those you love.</p>
+            </div>
+            <div class="wish-card">
+                <i class="fas fa-clock"></i>
+                <p>Time well spent, memories well made. Here's to a legendary year.</p>
+            </div>
+        </div>
+
+        <!-- extra heartfelt message -->
+        <div class="extra-quote">
+            <i class="fas fa-quote-left" style="margin-right: 10px; color: #ef8d3d;"></i> 
+            To everyone I know — you are the reason life shines brighter. Welcome 2083 with open arms and fierce hope. 
+            <i class="fas fa-quote-right" style="margin-left: 10px; color: #ef8d3d;"></i>
+        </div>
+    </div>
+
+    <!-- FOOTER with ARJUN SEDAI signature -->
+    <div class="footer-note">
+        <span><i class="far fa-calendar-alt"></i> 1st Baisakh 2083</span>
+        <span class="signature">
+            — <strong>Arjun Sedai</strong> <i class="fas fa-feather"></i>
+        </span>
+        <span><i class="fas fa-champagne-glasses"></i> Cheers</span>
+    </div>
+
+    <!-- subtle metallic detail -->
+    <div style="margin-top: 18px; opacity: 0.75; font-size: 0.9rem; letter-spacing: 2px; color: #cb9b73;">
+        ✦ RED & METALLIC ✦ ARJUN SEDAI ✦
+    </div>
+</div>
+
+
+</body>
+</html>
